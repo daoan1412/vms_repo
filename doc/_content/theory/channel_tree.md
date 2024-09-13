@@ -1,14 +1,12 @@
-<!-- 通道的树形结构 -->
+# Cấu trúc cây của kênh
 
-# 通道的树形结构
-
-国标28181规定了两种组织设备树的方式
-1. **行政区划**  
-   行政区划模式下主要是以行政区划作为目录节点例如：河北省->邯郸市->广平县  
+GB/T 28181 quy định hai cách tổ chức cây thiết bị
+1. **Phân vùng hành chính**  
+   Trong chế độ phân vùng hành chính, chủ yếu là sử dụng phân vùng hành chính làm nút thư mục, ví dụ: Tỉnh Hà Bắc -> Thành phố Hàm Đan -> Huyện Quảng Bình  
    ![_media/img_8.png](_media/img_8.png)  
-2. **业务分组**  
-   业务分组主要自定义的目录树的一种组织形式，但是对定义的目录的国标编号有一定的要求。  
-   第一级别需要是业务分组类型，即国标编码中的11、12、13是215,例如：65010200002150000001；  
-   业务分组下是虚拟组织，即国标编码中的11、12、13是216,例如：65010200002160000002。  
-   虚拟组织下不可是业务分组，虚拟组织下可以继续添加虚拟组织。  
+2. **Nhóm nghiệp vụ**  
+   Nhóm nghiệp vụ chủ yếu là một hình thức tổ chức cây thư mục tùy chỉnh, nhưng có một số yêu cầu nhất định đối với mã số quốc gia của thư mục được định nghĩa.  
+   Cấp độ đầu tiên cần phải là loại nhóm nghiệp vụ, tức là mã quốc gia trong 11, 12, 13 là 215, ví dụ: 65010200002150000001;  
+   Dưới nhóm nghiệp vụ là tổ chức ảo, tức là mã quốc gia trong 11, 12, 13 là 216, ví dụ: 65010200002160000002.  
+   Dưới tổ chức ảo không thể là nhóm nghiệp vụ, dưới tổ chức ảo có thể tiếp tục thêm tổ chức ảo.  
    ![_media/img_9.png](_media/img_9.png)

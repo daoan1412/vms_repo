@@ -1,17 +1,17 @@
-<!-- 封面 -->
+<!-- Trang bìa -->
 ![logo](_media/logo-mini.png)
 
 # WVP-PRO <small>2.0</small>
 
-> 开箱即用的28181协议视频平台。
+> Nền tảng video giao thức 28181 sẵn sàng sử dụng.
 
-- 基于GB/T28181-2016标准信令实现，兼容GB/T28181-2011。  
-- 自带完整前端页面，开箱即用。  
-- 完全开源，且使用MIT许可协议。可以在保留版权信息的基础上商用。
+- Thực hiện tín hiệu tiêu chuẩn dựa trên GB/T28181-2016, tương thích với GB/T28181-2011.
+- Tích hợp trang giao diện đầy đủ, sẵn sàng sử dụng.
+- Hoàn toàn mã nguồn mở, và sử dụng giấy phép MIT. Có thể sử dụng thương mại với điều kiện giữ lại thông tin bản quyền.
 
 [GitHub](https://github.com/648540858/wvp-GB28181-pro)
 [Gitee](https://gitee.com/pan648540858/wvp-GB28181-pro)
 
-<!-- 背景色 -->
+<!-- Màu nền -->
 
 [//]: # ([comment]: <> &#40;![color]&#40;#f0f0f0&#41;&#41;)

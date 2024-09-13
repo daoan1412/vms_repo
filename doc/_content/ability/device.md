@@ -1,33 +1,33 @@
 <!-- 接入设备 -->
-# 接入设备
-设备接入主要是需要在设备上配置28181上级也就是WVP-PRO的信息，只有信息一致的情况才可以注册成功。设备注册成功后打开WVP->国标设备,可以看到新增加的设备；[设备使用](./_content/ability/device_use.md)，  
-主要有以下字段需要配置：  
+# Kết nối thiết bị
+Kết nối thiết bị chủ yếu cần cấu hình thông tin WVP-PRO 28181 trên thiết bị, chỉ khi thông tin nhất quán mới có thể đăng ký thành công. Sau khi thiết bị đăng ký thành công, mở WVP->Thiết bị quốc gia, bạn có thể thấy thiết bị mới thêm vào; [Sử dụng thiết bị](./_content/ability/device_use.md),  
+Chủ yếu cần cấu hình các trường sau:  
 
 - sip->port  
-28181服务监听的端口  
+Cổng lắng nghe dịch vụ 28181  
 
 - sip->domain  
-domain宜采用ID统一编码的前十位编码。  
+Domain nên sử dụng mười ký tự đầu tiên của mã ID thống nhất.  
 
 - sip->id  
-28181服务ID
+ID dịch vụ 28181
 
 - sip->password  
-28181服务密码    
+Mật khẩu dịch vụ 28181    
 
-- 配置信息在如下位置  
+- Thông tin cấu hình tại vị trí sau  
 
 ![_media/img_16.png](_media/img_16.png)
 ***
-## 大华摄像头
+## Camera Dahua
 ![_media/img_10.png](_media/img_10.png)
-## 大华NVR
+## NVR Dahua
 ![_media/img_11.png](_media/img_11.png)
-## 艾科威视摄像头
+## Camera Hikvision
 ![_media/img_15.png](_media/img_15.png)
-## 水星摄像头
+## Camera Mercury
 ![_media/img_12.png](_media/img_12.png)
-## 海康摄像头
+## Camera Hikvision
 ![_media/img_9.png](_media/img_9.png)
 
-[设备使用](_content/ability/device_use.md)
+[Sử dụng thiết bị](_content/ability/device_use.md)

@@ -1,106 +1,106 @@
-# 介绍
+# Giới thiệu
 
-> 开箱即用的28181协议视频平台
+> Nền tảng video giao thức 28181 sẵn sàng sử dụng
 
-# 概述
-- WVP-PRO基于GB/T 28181-2016标准实现的流媒体平台，依托优秀的开源流媒体服务[ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit)，提供完善丰富的功能。
-- GB/T 28181-2016 中文标准名称是《公共安全视频监控联网系统信息传输、交换、控制技术要求》是监控领域的国家标准。大量应用于政府视频平台。
-- 通过28181协议你可以将IPC摄像头接入平台，可以观看也可以使用28181/rtsp/rtmp/flv等协议将视频流分发到其他平台。
+# Tổng quan
+- WVP-PRO dựa trên tiêu chuẩn GB/T 28181-2016 để thực hiện nền tảng phát trực tuyến, dựa vào dịch vụ phát trực tuyến mã nguồn mở xuất sắc [ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit), cung cấp các chức năng phong phú và hoàn chỉnh.
+- GB/T 28181-2016 là tiêu chuẩn quốc gia về yêu cầu kỹ thuật truyền tải, trao đổi và kiểm soát thông tin của hệ thống giám sát video an ninh công cộng. Được sử dụng rộng rãi trong các nền tảng video của chính phủ.
+:- Thông qua giao thức 28181, bạn có thể kết nối camera IPC vào nền tảng, có thể xem và sử dụng các giao thức 28181/rtsp/rtmp/flv để phân phối luồng video đến các nền tảng khác.
 
-# 特性
-- 实现标准的28181信令，兼容常见的品牌设备，比如海康、大华、宇视等品牌的IPC、NVR以及平台。
-- 支持将国标设备级联到其他国标平台，也支持将不支持国标的设备的图像或者直播推送到其他国标平台
-- 前端完善，自带完整前端页面，无需二次开发可直接部署使用。
-- 完全开源，且使用MIT许可协议。保留版权的情况下可以用于商业项目。
-- 支持多流媒体节点负载均衡。
+# Đặc điểm
+- Thực hiện tín hiệu 28181 tiêu chuẩn, tương thích với các thiết bị thương hiệu phổ biến như IPC, NVR của Hikvision, Dahua, Uniview và các nền tảng khác.
+- Hỗ trợ kết nối thiết bị quốc gia với các nền tảng quốc gia khác, cũng như hỗ trợ đẩy hình ảnh hoặc phát trực tiếp từ các thiết bị không hỗ trợ quốc gia đến các nền tảng quốc gia khác.
+:- Giao diện hoàn chỉnh, đi kèm với trang giao diện đầy đủ, không cần phát triển lại có thể triển khai và sử dụng ngay.
+:- Hoàn toàn mã nguồn mở và sử dụng giấy phép MIT. Có thể sử dụng cho các dự án thương mại với điều kiện giữ nguyên bản quyền.
+- Hỗ trợ cân bằng tải nhiều nút phương tiện truyền thông.
 
-# 付费社群
-[![社群](_media/shequ.png "shequ")](https://t.zsxq.com/0d8VAD3Dm)
-> 收费是为了提供更好的服务，也是对作者更大的激励。加入星球的用户三天后可以私信我留下微信号，我会拉大家入群。加入三天内不满意可以直接退款，大家不需要有顾虑，来白嫖三天也不是不可以。
+# Cộng đồng trả phí
+[![Cộng đồng](_media/shequ.png "shequ")](https://t.zsxq.com/0d8VAD3Dm)
+> Phí là để cung cấp dịch vụ tốt hơn và cũng là động lực lớn hơn cho tác giả. Người dùng tham gia vào nhóm sau ba ngày có thể nhắn tin riêng cho tôi để lại số WeChat, tôi sẽ thêm mọi người vào nhóm. Nếu không hài lòng trong ba ngày đầu tiên, bạn có thể yêu cầu hoàn tiền ngay lập tức, không cần lo lắng, bạn có thể thử miễn phí trong ba ngày.
 
-# 我们实现了哪些国标功能
-**作为上级平台**
-- [X] 注册
-- [X] 注销
-- [X] 实时视音频点播
-- [X] 设备控制
-  - [X] 云台控制
-  - [X] 远程启动
-  - [X] 录像控制
-  - [X] 报警布防/撤防
-  - [X] 报警复位
-  - [X] 强制关键帧
-  - [X] 拉框放大
-  - [X] 拉框缩小
-  - [X] 看守位控制
-  - [X] 设备配置
-- [X] 报警事件通知和分发
-- [X] 设备目录订阅
-- [X] 网络设备信息查询
-  - [X] 设备目录查询
-  - [X] 设备状态查询
-  - [X] 设备配置查询
-  - [X] 设备预置位查询
-- [X] 状态信息报送
-- [X] 设备视音频文件检索
-- [X] 历史视音频的回放
-  - [X] 播放
-  - [X] 暂停
-  - [X] 进/退
-  - [X] 停止
-- [X] 视音频文件下载
-- [X] 校时
-- [X] 订阅和通知
-  - [X] 事件订阅
-    - [X] 移动设备位置订阅
-    - [X] 报警订阅
-    - [X] 目录订阅
-- [X] 语音广播
-- [X] 语音喊话
+# Chúng tôi đã thực hiện những chức năng quốc gia nào
+# Chúng tôi đã thực hiện những chức năng quốc gia nào
+**Là nền tảng cấp trên**
+:- [X] Đăng ký
+- [X] Hủy đăng ký
+- [X] Phát trực tiếp âm thanh và video
+  - [X] Điều khiển thiết bị
+  :- [X] Điều khiển PTZ
+  - [X] Khởi động từ xa
+  - [X] Điều khiển ghi hình
+  - [X] Báo động bật/tắt
+  - [X] Đặt lại báo động
+  :- [X] Khung hình bắt buộc
+  :- [X] Phóng to khung hình
+  :- [X] Thu nhỏ khung hình
+  - [X] Điều khiển vị trí giám sát
+:- [X] Thông báo và phân phối sự kiện báo động
+- [X] Đăng ký danh mục thiết bị
+- [X] Truy vấn thông tin thiết bị mạng
+  - [X] Truy vấn danh mục thiết bị
+  - [X] Truy vấn trạng thái thiết bị
+  - [X] Truy vấn cấu hình thiết bị
+  - [X] Truy vấn vị trí đặt trước của thiết bị
+- [X] Báo cáo thông tin trạng thái
+:- [X] Tìm kiếm tệp âm thanh và video của thiết bị
+- [X] Phát lại âm thanh và video lịch sử
+  :- [X] Phát
+  :- [X] Tạm dừng
+  :- [X] Tiến/lùi
+  :- [X] Dừng
+- [X] Tải xuống tệp âm thanh và video
+- [X] Đồng bộ thời gian
+- [X] Đăng ký và thông báo
+  - [X] Đăng ký sự kiện
+    :- [X] Đăng ký vị trí thiết bị di động
+    - [X] Đăng ký báo động
+    - [X] Đăng ký danh mục
+:- [X] Phát thanh
+- [X] Gọi thoại
 
-**作为下级平台**
-- [X] 注册
-- [X] 注销
-- [X] 实时视音频点播
-- [X] 设备控制
-  - [X] 云台控制
-  - [ ] 远程启动
-  - [X] 录像控制
-  - [X] 报警布防/撤防
-  - [X] 报警复位
-  - [X] 强制关键帧
-  - [X] 拉框放大
-  - [X] 拉框缩小
-  - [X] 看守位控制
-  - [ ] 设备配置
-- [ ] 报警事件通知和分发
-- [X] 设备目录订阅
-- [X] 网络设备信息查询
-  - [X] 设备目录查询
-  - [X] 设备状态查询
-  - [ ] 设备配置查询
-  - [X] 设备预置位查询
-- [X] 状态信息报送
-- [X] 设备视音频文件检索
-- [X] 历史视音频的回放
-  - [X] 播放
-  - [x] 暂停
-  - [x] 进/退
-  - [x] 停止
-- [X] 视音频文件下载
-- [ ] ~~校时~~
-- [X] 订阅和通知
-  - [X] 事件订阅
-    - [X] 移动设备位置订阅
-    - [ ] 报警订阅
-    - [X] 目录订阅
-- [X] 语音广播
-- [X] 语音喊话
+**Là nền tảng cấp dưới**
+:- [X] Đăng ký
+- [X] Hủy đăng ký
+- [X] Phát trực tiếp âm thanh và video
+- [X] Điều khiển thiết bị
+  :- [X] Điều khiển PTZ
+  - [X] Khởi động từ xa
+  - [X] Điều khiển video
+  - [X] Báo động bật/tắt
+  - [X] Đặt lại báo động
+  :- [X] Khung hình bắt buộc
+  :- [X] Phóng to khung hình
+  :- [X] Thu nhỏ khung hình
+  - [X] Điều khiển vị trí giám sát
+  :- [ ] Cấu hình thiết bị
+- [X] Thông báo và phân phối sự kiện báo động
+- [X] Đăng ký danh mục thiết bị
+:- [X] Truy vấn thông tin thiết bị mạng
+  - [X] Truy vấn thông tin thiết bị mạng
+  :- [X] Truy vấn trạng thái thiết bị
+  - [X] Truy vấn cấu hình thiết bị
+  :- [X] Truy vấn vị trí đặt trước của thiết bị
+- [X] Báo cáo thông tin trạng thái
+:- [X] Tìm kiếm tệp âm thanh và video của thiết bị
+- [X] Phát lại âm thanh và video lịch sử
+  :- [X] Phát
+  :- [X] Tạm dừng
+  :- [X] Tiến/lùi
+  :- [X] Dừng
+- [X] Tải xuống tệp âm thanh và video
+:- [ ] Đồng bộ thời gian
+- [X] Đăng ký và thông báo
+  - [X] Đăng ký sự kiện
+    :- [X] Đăng ký vị trí thiết bị di động
+    - [X] Đăng ký báo động
+    :- [X] Đăng ký danh mục
+- [X] Phát thanh
+- [X] Gọi thoại
 
    
 
 
-# 社区
-代码目前托管在GitHub和Gitee，Gitee目前作为加速仓库使用，不接受issue。  
+# Cộng đồng
+Mã nguồn hiện đang được lưu trữ trên GitHub và Gitee, Gitee hiện được sử dụng như một kho lưu trữ tăng tốc, không chấp nhận issue.
 GitHub： [https://github.com/648540858/wvp-GB28181-pro](https://github.com/648540858/wvp-GB28181-pro)  
 Gitee： [https://gitee.com/pan648540858/wvp-GB28181-pro](https://gitee.com/pan648540858/wvp-GB28181-pro)

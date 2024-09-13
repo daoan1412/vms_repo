@@ -1,95 +1,87 @@
 <!-- 编译 -->
-# 编译
-WVP-PRO不只是实现了国标28181的协议，本身也是一个完整的视频平台。所以对于新手来说，你可能需要一些耐心来完成。遇到问题不要焦躁，你可以
-1. 百度
-2. 加入星球体提问；[知识星球](https://t.zsxq.com/0d8VAD3Dm)
-3. 向作者发送邮件648540858@qq.com,寻求技术支持（有偿）；
+# Biên dịch
+WVP-PRO không chỉ thực hiện giao thức GB28181 mà còn là một nền tảng video hoàn chỉnh. Vì vậy, đối với người mới, bạn có thể cần một chút kiên nhẫn để hoàn thành. Nếu gặp vấn đề, đừng lo lắng, bạn có thể
+1. Tìm kiếm trên Baidu
+2. Tham gia hỏi đáp trên [Zhishi Xingqiu](https://t.zsxq.com/0d8VAD3Dm)
+3. Gửi email cho tác giả 648540858@qq.com để tìm kiếm hỗ trợ kỹ thuật (có phí);
 
-WVP-PRO使用Spring boot开发，maven管理依赖。对于熟悉spring开发的朋友是很容易进行编译部署以及运行的。  
-下面将提供一种通用方法方便大家运行项目。
-## 1 服务介绍
-| 服务             | 作用                                       | 是否必须                    |
+WVP-PRO được phát triển bằng Spring Boot và quản lý phụ thuộc bằng Maven. Đối với những người quen thuộc với phát triển Spring, việc biên dịch, triển khai và chạy sẽ rất dễ dàng.  
+Dưới đây là một phương pháp chung để giúp mọi người chạy dự án.
+## 1 Giới thiệu dịch vụ
+| Dịch vụ         | Chức năng                                      | Bắt buộc                  |
 |----------------|------------------------------------------|-------------------------|
-| WVP-PRO        | 实现国标28181的信令以及视频平台相关的功能                  | 是                       |
-| ZLMediaKit     | 为WVP-PRO提供国标28181的媒体部分的实现，以及各种视频流格式的分发支持 | 是                       |
+| WVP-PRO        | Thực hiện tín hiệu GB28181 và các chức năng liên quan đến nền tảng video | Có                       |
+| ZLMediaKit     | Cung cấp phần phương tiện của GB28181 cho WVP-PRO và hỗ trợ phân phối các định dạng luồng video khác nhau | Có                       |
 
-## 2 安装依赖
-| 依赖     | 版本         | 用途          | 开发环境需要 | 生产环境需要 |
+## 2 Cài đặt phụ thuộc
+| Phụ thuộc | Phiên bản     | Mục đích          | Cần cho môi trường phát triển | Cần cho môi trường sản xuất |
 |--------|------------|-------------|--------|--------|
-| jdk    | >=1.8      | 运行与编译java代码 | 是      | 是      |  
-| maven  | >=3.3      | 管理java代码依赖  | 否      | 否      |
-| git    || 下载/更新/提交代码 | 否           | 否      |
-| nodejs || 编译于运行前端文件  | 否           | 否      |
-| npm    || 管理前端文件依赖   | 否           | 否      |
+| jdk    | >=1.8      | Chạy và biên dịch mã Java | Có      | Có      |  
+| maven  | >=3.3      | Quản lý phụ thuộc mã Java  | Không      | Không      |
+| git    || Tải xuống/cập nhật/đẩy mã | Không           | Không      |
+| nodejs || Biên dịch và chạy tệp frontend  | Không           | Không      |
+| npm    || Quản lý phụ thuộc tệp frontend   | Không           | Không      |
 
-如果你是一个新手，建议你使用linux或者macOS平台。windows不推荐。
+Nếu bạn là người mới, khuyên bạn nên sử dụng nền tảng Linux hoặc macOS. Không khuyến khích sử dụng Windows.
 
-ubuntu环境，以ubuntu 18为例：
+Môi trường Ubuntu, ví dụ với Ubuntu 18:
 ``` bash
 apt-get install -y openjdk-11-jre git maven nodejs npm
 ```
-centos环境,以centos 8为例：
+Môi trường CentOS, ví dụ với CentOS 8:
 ```bash
 yum install -y java-1.8.0-openjdk.x86_64 git maven nodejs npm
 ```
-window环境，以windows10为例：
+Môi trường Windows, ví dụ với Windows 10:
 ```bash
-这里不细说了，百度或者谷歌一搜一大把，基本都是下一步下一步，然后配置环境变量。
+Ở đây không nói chi tiết, bạn có thể tìm kiếm trên Baidu hoặc Google, hầu hết đều là nhấn "Next" và sau đó cấu hình biến môi trường.
 ```
-## 3 安装mysql以及redis
-这里依然是参考网上教程，自行安装吧。
+## 3 Cài đặt MySQL và Redis
+Ở đây bạn có thể tham khảo các hướng dẫn trên mạng để tự cài đặt.
 
-## 4 编译ZLMediaKit
-参考ZLMediaKit[WIKI](https://github.com/ZLMediaKit/ZLMediaKit/wiki)，如果需要使用语音对讲功能，请参考[zlm启用webrtc编译指南](https://github.com/ZLMediaKit/ZLMediaKit/wiki/zlm%E5%90%AF%E7%94%A8webrtc%E7%BC%96%E8%AF%91%E6%8C%87%E5%8D%97)，开启zlm的webrtc功能。截取一下关键步骤：
+## 4 Biên dịch ZLMediaKit
+Tham khảo [WIKI](https://github.com/ZLMediaKit/ZLMediaKit/wiki) của ZLMediaKit, nếu cần sử dụng chức năng đàm thoại, hãy tham khảo [Hướng dẫn biên dịch WebRTC của ZLM](https://github.com/ZLMediaKit/ZLMediaKit/wiki/zlm%E5%90%AF%E7%94%A8webrtc%E7%BC%96%E8%AF%91%E6%8C%87%E5%8D%97) để kích hoạt chức năng WebRTC của ZLM. Dưới đây là các bước quan trọng:
 ```bash
-# 国内用户推荐从同步镜像网站gitee下载 
+# Người dùng trong nước khuyến nghị tải xuống từ trang gương đồng bộ Gitee 
 git clone --depth 1 https://gitee.com/xia-chu/ZLMediaKit
 cd ZLMediaKit
-# 千万不要忘记执行这句命令
+# Đừng quên thực hiện lệnh này
 git submodule update --init
 ```
-## 5 编译WVP-PRO
-### 5.1 可以通过git克隆，也可以在项目下载点击下载
-![点击下载](_media/img_1.png)
-![点击下载](_media/img_2.png)
-从gitee克隆
+## 5 Biên dịch WVP-PRO
+### 5.1 Có thể clone qua git hoặc tải xuống từ dự án
+![Tải xuống](_media/img_1.png)
+![Tải xuống](_media/img_2.png)
+Clone từ Gitee
 ```bash
 git clone https://gitee.com/pan648540858/wvp-GB28181-pro.git
 ```
-从github克隆
+Clone từ GitHub
 ```bash
 git clone https://github.com/648540858/wvp-GB28181-pro.git
 ```
 
-### 5.2 编译前端页面
+### 5.2 Biên dịch trang frontend
 ```shell script
 cd wvp-GB28181-pro/web_src/
 npm --registry=https://registry.npmmirror.com install
 npm run build
 ```
-编译如果报错, 一般都是网络问题, 导致的依赖包下载失败  
-编译完成后在src/main/resources下出现static目录
-**编译完成一般是这个样子，中间没有报红的错误信息**
-![编译成功](_media/img.png)
+Nếu biên dịch gặp lỗi, thường là do vấn đề mạng, dẫn đến việc tải xuống gói phụ thuộc thất bại  
+Sau khi biên dịch hoàn tất, thư mục `static` sẽ xuất hiện trong `src/main/resources`
+**Biên dịch hoàn tất thường trông như thế này, không có thông báo lỗi màu đỏ**
+![Biên dịch thành công](_media/img.png)
 
-### 5.3 生成可执行jar
+### 5.3 Tạo file jar thực thi
 ```bash
 cd wvp-GB28181-pro
 mvn package
 ```
-### 5.4 生成war
+### 5.4 Tạo file war
 ```bash
 cd wvp-GB28181-pro
 mvn package -P war
 ```
-编译如果报错, 一般都是网络问题, 导致的依赖包下载失败  
-编译完成后在target目录下出现wvp-pro-***.jar/wvp-pro-***.war。  
-接下来[配置服务](./_content/introduction/config.md)
-
-  
-
-
-
-
-
-
+Nếu biên dịch gặp lỗi, thường là do vấn đề mạng, dẫn đến việc tải xuống gói phụ thuộc thất bại  
+Sau khi biên dịch hoàn tất, file `wvp-pro-***.jar` hoặc `wvp-pro-***.war` sẽ xuất hiện trong thư mục `target`.  
+Tiếp theo [cấu hình dịch vụ](./_content/introduction/config.md)

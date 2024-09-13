@@ -1,46 +1,44 @@
 <!-- 点播流程 -->
 
-# 点播流程
-> 以下为WVP-PRO级联语音喊话流程。
+# Quy trình phát sóng
+> Dưới đây là quy trình phát thanh cấp liên của WVP-PRO.
 
-```plantuml
+```
 @startuml
-"上级平台"  -> "下级平台": 1. 发起语音喊话请求
-"上级平台" <--  "下级平台": 2. 200OK
-"上级平台" <- "下级平台": 3. 回复Result OK
-"上级平台" -->  "下级平台": 4. 200OK
+"Platform cấp trên"  -> "Platform cấp dưới": 1. Gửi yêu cầu phát thanh
+"Platform cấp trên" <--  "Platform cấp dưới": 2. 200OK
+"Platform cấp trên" <- "Platform cấp dưới": 3. Trả lời Result OK
+"Platform cấp trên" -->  "Platform cấp dưới": 4. 200OK
 
-"下级平台"  -> "设备": 5. 发起语音喊话请求
-"下级平台" <--  "设备": 6. 200OK
-"下级平台" <- "设备": 7. 回复Result OK
-"下级平台" -->  "设备": 8. 200OK
+"Platform cấp dưới"  -> "Thiết bị": 5. Gửi yêu cầu phát thanh
+"Platform cấp dưới" <--  "Thiết bị": 6. 200OK
+"Platform cấp dưới" <- "Thiết bị": 7. Trả lời Result OK
+"Platform cấp dưới" -->  "Thiết bị": 8. 200OK
 
-"下级平台"  <- "设备": 9. invite(broadcast)
-"下级平台"  --> "设备": 10. 100 trying
-"下级平台"  --> "设备": 11. 200OK SDP
-"下级平台"  <-- "设备": 12. ack
+"Platform cấp dưới"  <- "Thiết bị": 9. invite(broadcast)
+"Platform cấp dưới"  --> "Thiết bị": 10. 100 trying
+"Platform cấp dưới"  --> "Thiết bị": 11. 200OK SDP
+"Platform cấp dưới"  <-- "Thiết bị": 12. ack
 
-"上级平台"  <- "下级平台": 13. invite(broadcast)
-"上级平台"  --> "下级平台": 14. 100 trying
-"上级平台"  --> "下级平台": 15. 200OK SDP
-"上级平台"  <-- "下级平台": 16. ack
+"Platform cấp trên"  <- "Platform cấp dưới": 13. invite(broadcast)
+"Platform cấp trên"  --> "Platform cấp dưới": 14. 100 trying
+"Platform cấp trên"  --> "Platform cấp dưới": 15. 200OK SDP
+"Platform cấp trên"  <-- "Platform cấp dưới": 16. ack
 
-"上级平台"  -> "下级平台": 17. 推送RTP
-"下级平台"  -> "设备": 18. 推送RTP
+"Platform cấp trên"  -> "Platform cấp dưới": 17. Đẩy RTP
+"Platform cấp dưới"  -> "Thiết bị": 18. Đẩy RTP
 
 @enduml
 ```
 
-
-##  注册流程描述如下:
-1. 用户从网页或调用接口发起点播请求;
-2. WVP-PRO向摄像机发送Invite消息,消息头域中携带 Subject字段,表明点播的视频源ID、发送方媒体流序列号、ZLMediaKit接收流使用的IP、端口号、
-   接收端媒体流序列号等参数,SDP消息体中 s字段为“Play”代表实时点播，y字段描述SSRC值,f字段描述媒体参数。
-3. 摄像机向WVP-PRO回复200OK，消息体中描述了媒体流发送者发送媒体流的IP、端口、媒体格式、SSRC字段等内容。
-4. WVP-PRO向设备回复Ack， 会话建立成功。
-5. 设备向ZLMediaKit发送实时流。
-6. ZLMediaKit向WVP-PRO发送流改变事件。
-7. WVP-PRO向WEB用户回复播放地址。
-8. ZLMediaKit向WVP发送流无人观看事件。
-9. WVP-PRO向设备回复Bye， 结束会话。
-10. 设备回复200OK，会话结束成功。
+##  Mô tả quy trình đăng ký như sau:
+1. Người dùng từ trang web hoặc gọi giao diện để gửi yêu cầu phát sóng;
+2. WVP-PRO gửi tin nhắn Invite đến camera, trong tiêu đề tin nhắn có chứa trường Subject, biểu thị ID nguồn video phát sóng, số thứ tự luồng phương tiện của người gửi, IP sử dụng để nhận luồng của ZLMediaKit, số thứ tự luồng phương tiện của người nhận, v.v., trong phần thân tin nhắn SDP, trường s là “Play” đại diện cho phát sóng trực tiếp, trường y mô tả giá trị SSRC, trường f mô tả các tham số phương tiện.
+3. Camera trả lời WVP-PRO bằng 200OK, trong phần thân tin nhắn mô tả IP, cổng, định dạng phương tiện, trường SSRC của người gửi phương tiện.
+4. WVP-PRO trả lời thiết bị bằng Ack, phiên làm việc được thiết lập thành công.
+5. Thiết bị gửi luồng trực tiếp đến ZLMediaKit.
+6. ZLMediaKit gửi sự kiện thay đổi luồng đến WVP-PRO.
+7. WVP-PRO trả lời người dùng WEB bằng địa chỉ phát sóng.
+8. ZLMediaKit gửi sự kiện không có người xem luồng đến WVP.
+9. WVP-PRO trả lời thiết bị bằng Bye, kết thúc phiên làm việc.
+10. Thiết bị trả lời bằng 200OK, kết thúc phiên làm việc thành công.

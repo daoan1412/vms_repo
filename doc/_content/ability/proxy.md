@@ -1,24 +1,24 @@
 <!-- 拉流代理 -->
-# 拉流代理
-不是所有的摄像机都支持国标或者推流的，但是这些设备可以得到一个视频播放地址，通常为rtsp协议，
-以大华为例：
+# Proxy kéo luồng
+Không phải tất cả các camera đều hỗ trợ tiêu chuẩn quốc gia hoặc đẩy luồng, nhưng các thiết bị này có thể nhận được một địa chỉ phát video, thường là giao thức rtsp,
+Ví dụ với Dahua:
 ```text
 rtsp://{user}:{passwd}@{ipc_ip}:{rtsp_port}/cam/realmonitor?channel=1&subtype=0
 ```
-可以得到这样一个流地址，可以直接用vlc进行播放，此时我们可以通过拉流代理功能将这个设备推送给其他国标平台了。
-流程如下：
+Có thể nhận được một địa chỉ luồng như vậy, có thể phát trực tiếp bằng vlc, lúc này chúng ta có thể sử dụng chức năng proxy kéo luồng để đẩy thiết bị này lên các nền tảng quốc gia khác.
+Quy trình như sau:
 ```plantuml
 @startuml
-"摄像机"  <- "ZLMediaKit": 1. 流去流信息到ZLM
-"ZLMediaKit"  -> "WVP-PRO": 2. 收到hook通知得到流信息
-"上级国标平台"  -> "WVP-PRO": 3. 点播这路视频
-"WVP-PRO" -> "ZLMediaKit": 4. 通知推流到上级国标平台
+"Camera"  <- "ZLMediaKit": 1. Gửi thông tin luồng đến ZLM
+"ZLMediaKit"  -> "WVP-PRO": 2. Nhận thông báo hook để lấy thông tin luồng
+"Nền tảng quốc gia cấp trên"  -> "WVP-PRO": 3. Yêu cầu phát video này
+"WVP-PRO" -> "ZLMediaKit": 4. Thông báo đẩy luồng lên nền tảng quốc gia cấp trên
 @enduml
 ```
-## 添加代理
-拉流代理支持两种方式：
-1. ZLM中直接代理流，支持RTSP/RTMP，不支持转码；
-2. 借助ffmpeg完成拉转，可以通过修改ffmpeg拉转参数完成转码。  
-点击页面的“添加代理”，安装提示操作即可，保存并启用成功后，可以在国标级联中[添加通道推送给上级平台](./_content/ability/cascade?id=_2-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95%e4%b8%8e%e9%80%9a%e9%81%93)
+## Thêm proxy
+Proxy kéo luồng hỗ trợ hai cách:
+1. Proxy luồng trực tiếp trong ZLM, hỗ trợ RTSP/RTMP, không hỗ trợ chuyển mã;
+2. Sử dụng ffmpeg để kéo và chuyển mã, có thể thay đổi tham số ffmpeg để hoàn thành chuyển mã.  
+   Nhấp vào trang "Thêm proxy", làm theo hướng dẫn, sau khi lưu và kích hoạt thành công, có thể thêm kênh đẩy lên nền tảng cấp trên trong liên kết quốc gia.
 
-PS： ffmpeg默认模板不需修改，需要修改参数自行去ZLM配置文件中添加一个即可。
+PS: Mẫu ffmpeg mặc định không cần thay đổi, nếu cần thay đổi tham số, tự thêm vào tệp cấu hình ZLM.

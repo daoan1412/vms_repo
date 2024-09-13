@@ -1,9 +1,9 @@
 <!-- 节点管理 -->
-# 节点管理
-WVP支持单个WVP多个ZLM的方案来扩展WVP的视频并发能力，并发点播是因为带宽和性能的原因，单个ZLM节点能支持的路数有限，所以WVP增加了ZLM集群来扩展并发并且保证ZLM的高可用。
-## 默认节点
-WVP中为了保证功能的完整性，ZLM节点至少要有一个默认节点，这个节点不是在管理页面添加的，而是在WVP的配置文件中配置的，这个节点不可在页面删除。每次启动会自动从配置文件中读取配置写入数据库备用。
-## 新增节点
-启动你要添加的zlm节点，然后点击“添加节点”按钮输入zlm的ip， http端口，SECRET。点击测试测试完成则开始对节点进行详细的设置，如果你的zlm是使用docker启动的，可能存在zlm使用的端口与宿主机端口不一致的情况，需要在这里一一配置。
-## wvp使用多个节点的原理
-wvp会把连接的节点统一记录在redis中，并记录zlm的负载情况，当新的请求到来时，会取出负载最低的那个zlm进行使用。以此保证节点负载均衡。
+# Quản lý nút
+WVP hỗ trợ một WVP với nhiều ZLM để mở rộng khả năng đồng thời của video WVP. Việc đồng thời phát lại video là do băng thông và hiệu suất, một nút ZLM đơn lẻ chỉ có thể hỗ trợ một số lượng kết nối hạn chế, vì vậy WVP đã thêm cụm ZLM để mở rộng khả năng đồng thời và đảm bảo tính khả dụng cao của ZLM.
+## Nút mặc định
+Trong WVP, để đảm bảo tính toàn vẹn của chức năng, ít nhất phải có một nút ZLM mặc định. Nút này không được thêm vào trang quản lý mà được cấu hình trong tệp cấu hình của WVP. Nút này không thể bị xóa trên trang. Mỗi lần khởi động sẽ tự động đọc cấu hình từ tệp cấu hình và ghi vào cơ sở dữ liệu để dự phòng.
+## Thêm nút mới
+Khởi động nút zlm mà bạn muốn thêm, sau đó nhấp vào nút "Thêm nút" và nhập ip của zlm, cổng http, SECRET. Nhấp vào kiểm tra, sau khi kiểm tra hoàn tất, bạn có thể bắt đầu cấu hình chi tiết cho nút. Nếu zlm của bạn được khởi động bằng docker, có thể có trường hợp cổng zlm sử dụng không khớp với cổng của máy chủ, cần cấu hình từng cổng một tại đây.
+## Nguyên lý sử dụng nhiều nút của wvp
+wvp sẽ ghi lại các nút kết nối trong redis và ghi lại tình trạng tải của zlm. Khi có yêu cầu mới đến, nó sẽ lấy zlm có tải thấp nhất để sử dụng. Điều này đảm bảo cân bằng tải cho các nút.

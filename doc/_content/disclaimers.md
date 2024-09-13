@@ -1,2 +1,2 @@
-# 免责声明
-WVP-PRO自有代码使用宽松的MIT协议，在保留版权信息的情况下可以自由应用于各自商用、非商业的项目。 但是本项目也零碎的使用了一些其他的开源代码，在商用的情况下请自行替代或剔除； 由于使用本项目而产生的商业纠纷或侵权行为一概与本项目及开发者无关，请自行承担法律风险。 在使用本项目代码时，也应该在授权协议中同时表明本项目依赖的第三方库的协议
+# Disclaimer
+WVP-PRO tự có mã nguồn sử dụng giấy phép MIT thoải mái, có thể tự do áp dụng vào các dự án thương mại và phi thương mại của riêng mình khi giữ lại thông tin bản quyền. Tuy nhiên, dự án này cũng sử dụng một số mã nguồn mở khác, trong trường hợp thương mại, vui lòng tự thay thế hoặc loại bỏ; Mọi tranh chấp thương mại hoặc hành vi vi phạm phát sinh do sử dụng dự án này đều không liên quan đến dự án và nhà phát triển, vui lòng tự chịu rủi ro pháp lý. Khi sử dụng mã nguồn của dự án này, bạn cũng nên chỉ ra giấy phép của các thư viện bên thứ ba mà dự án này phụ thuộc vào trong giấy phép của bạn.

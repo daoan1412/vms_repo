@@ -1,8 +1,7 @@
 <!-- 设备注册不上来的解决办法 -->
-# 设备注册不上来的解决办法
-一般的原因有两个
-1. 信息填写错误，比如密码错误； 
-2. 网络不通导致注册消息无法发送到WVP； 
+# Giải pháp khi thiết bị không đăng ký được
+Nguyên nhân thường có hai
+1. Thông tin điền sai, ví dụ như mật khẩu sai;
+2. Mạng không kết nối được dẫn đến thông báo đăng ký không thể gửi đến WVP;
 
-
-遇到问题首先仔细校验填写信息，例如海康可能需要勾选鉴权才可以输入密码。网络问题请自行测试。
+Khi gặp vấn đề, trước tiên hãy kiểm tra kỹ thông tin đã điền, ví dụ như Hikvision có thể cần chọn xác thực mới có thể nhập mật khẩu. Vấn đề mạng vui lòng tự kiểm tra.

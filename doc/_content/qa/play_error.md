@@ -1,57 +1,57 @@
 <!-- 点播错误 -->
-# 点播错误
-排查点播错误你首先要清楚[点播的基本流程](_content/theory/play.md),一般的流程如下：
+
+# Lỗi điểm phát sóng
+Để khắc phục lỗi điểm phát sóng, trước tiên bạn cần hiểu [quy trình cơ bản của điểm phát sóng](_content/theory/play.md), quy trình chung như sau:
 ```plantuml
 @startuml
-"WEB用户"  -> "WVP-PRO": 1. 发起点播请求
-"设备" <-  "WVP-PRO": 2. Invite(携带SDP消息体)
-"设备" --> "WVP-PRO": 3. 200OK(携带SDP消息体)
-"设备" <-- "WVP-PRO": 4. Ack
-"设备" -> "ZLMediaKit": 5. 发送实时流
-"WVP-PRO" <- "ZLMediaKit": 6. 流改变事件
-"WEB用户"  <-- "WVP-PRO": 7. 回复流播放地址（携带流地址）
-"WVP-PRO" <- "ZLMediaKit": 8. 无人观看事件
-"设备" <-  "WVP-PRO": 9 Bye消息
-"设备" -->  "WVP-PRO": 10 200OK
+"WEB người dùng"  -> "WVP-PRO": 1. Gửi yêu cầu điểm phát sóng
+"Thiết bị" <-  "WVP-PRO": 2. Mời (kèm theo thông điệp SDP)
+"Thiết bị" --> "WVP-PRO": 3. 200OK (kèm theo thông điệp SDP)
+"Thiết bị" <-- "WVP-PRO": 4. Xác nhận
+"Thiết bị" -> "ZLMediaKit": 5. Gửi luồng trực tiếp
+"WVP-PRO" <- "ZLMediaKit": 6. Sự kiện thay đổi luồng
+"WEB người dùng"  <-- "WVP-PRO": 7. Trả lời địa chỉ phát sóng (kèm theo địa chỉ luồng)
+"WVP-PRO" <- "ZLMediaKit": 8. Sự kiện không có người xem
+"Thiết bị" <-  "WVP-PRO": 9. Thông điệp Bye
+"Thiết bị" -->  "WVP-PRO": 10. 200OK
 @enduml
 ```
-针对几种常见的错误，我们来分析一下，也方便大家对号入座解决常见的问题
-## 点播收到错误码
-这个错误一般表现为点击"播放"按钮后很快得到一个错误。
-1. **400错误码**  
-出现400错误玛时一般是这样的流程是这样的
+Đối với một số lỗi phổ biến, chúng ta sẽ phân tích để dễ dàng giải quyết các vấn đề thường gặp
+## Nhận mã lỗi khi điểm phát sóng
+Lỗi này thường xuất hiện khi nhấn nút "Phát" và nhận được lỗi ngay lập tức.
+1. **Mã lỗi 400**  
+   Khi xuất hiện mã lỗi 400, quy trình thường như sau:
 ```plantuml
 @startuml
-"WEB用户"  -> "WVP-PRO": 1. 发起点播请求
-"设备" <-  "WVP-PRO": 2. Invite(携带SDP消息体)
-"设备" --> "WVP-PRO": 3. 400错误
+"WEB người dùng"  -> "WVP-PRO": 1. Gửi yêu cầu điểm phát sóng
+"Thiết bị" <-  "WVP-PRO": 2. Mời (kèm theo thông điệp SDP)
+"Thiết bị" --> "WVP-PRO": 3. Lỗi 400
 @enduml
 ```
-此时通常是设备认为WVP发送了错误的消息给它，它认为消息不全或者错误所以直接返回400错误，此时我们需要[抓包](_content/skill/tcpdump.md)来分析是否缺失了内容，也可以直接联系对方询问为什么返回了400。
-WVP不能保证兼容所有的设备，有些实现不规范的设备可能在对接时就会出现上述问题，你可以联系作者帮忙对接。
-2. **500错误码**  
-500或者大于500小于600的错误码一般多是设备内部出了问题，解决方式有两个，第一种直接联系设备/平台客服寻求解决；第二种，如果你有确定可以对接这个设备的平台那么可以把对接这个平台的抓包和对接wvp的抓包同时发送给我，我来尝试解决。
+Lúc này, thiết bị thường cho rằng WVP đã gửi thông điệp sai hoặc không đầy đủ, do đó trả về lỗi 400. Chúng ta cần [bắt gói tin](_content/skill/tcpdump.md) để phân tích xem có thiếu nội dung hay không, hoặc liên hệ với đối tác để hỏi lý do trả về lỗi 400.
+WVP không thể đảm bảo tương thích với tất cả các thiết bị, một số thiết bị không tuân thủ tiêu chuẩn có thể gặp vấn đề khi kết nối, bạn có thể liên hệ tác giả để được hỗ trợ kết nối.
+2. **Mã lỗi 500**  
+   Mã lỗi 500 hoặc lớn hơn 500 nhưng nhỏ hơn 600 thường do lỗi nội bộ của thiết bị. Có hai cách giải quyết: thứ nhất là liên hệ với bộ phận hỗ trợ của thiết bị/nền tảng để tìm giải pháp; thứ hai, nếu bạn chắc chắn có thể kết nối với nền tảng này, bạn có thể gửi gói tin kết nối với nền tảng và gói tin kết nối với WVP cho tôi để tôi thử giải quyết.
 
+## Quá thời gian điểm phát sóng
+Quá thời gian điểm phát sóng có thể chia thành hai loại: quá thời gian điểm phát sóng và quá thời gian nhận luồng
+1. **Quá thời gian điểm phát sóng**  
+   Lỗi quá thời gian điểm phát sóng thường do tín hiệu quá thời gian, ví dụ như không nhận được phản hồi từ đối tác trong thời gian dài, có thể xảy ra ở bước “3. 200OK (kèm theo thông điệp SDP)”, tức là chúng ta gửi thông điệp điểm phát sóng nhưng thiết bị không phản hồi, có thể do:
+> 1. Lỗi nội bộ của thiết bị, không thể phản hồi thông điệp
+> 2. Lỗi mạng khiến thông điệp không đến được thiết bị
 
-## 点播超时
-点播超时的情况大致分为两种：点播超时和收流超时
-1. **点播超时**  
-点播超时错误一般为信令的超时，比如长时间为收到对方的回复，可能出现在流程中 “3. 200OK(携带SDP消息体)”这个位置，即我们发送点播消息，但是设备没有回复，可能的原因：
-> 1. 设备内部错误，未能回复消息
-> 2. 网络原因消息未到到达设备  
+Phần lớn trường hợp là do nguyên nhân thứ 2, vì vậy khi gặp lỗi này, chúng ta cần kiểm tra mạng của mình trước. Nếu bạn triển khai trên mạng công cộng, có thể do chu kỳ heartbeat quá dài, dẫn đến NAT của router hết hạn, thông điệp của WVP không thể gửi đến thiết bị qua địa chỉ IP và cổng ban đầu.
 
-大部分时候是原因2，所以遇到这个错误我们首先要排查我们我的网路，如果你是公网部署，那么也可能时心跳周期太长，导致的路由NAT失效，WVP的消息无法通道原来的IP端口号发送给设备。
+2. **Quá thời gian nhận luồng**  
+   Quá thời gian nhận luồng có thể xảy ra ở bước 5 và 6, có thể do:
+> 1. Thiết bị đã gửi luồng nhưng gửi đến sai địa chỉ IP và cổng, thông tin này được chỉ định trong thông điệp SDP của bước 2 Mời (kèm theo thông điệp SDP), lỗi này có thể do cấu hình sai, ví dụ bạn đặt địa chỉ 127.0.0.1 khiến thiết bị gửi luồng đến 127.0.0.1, hoặc WVP của bạn trên mạng công cộng nhưng bạn cung cấp cho thiết bị một địa chỉ IP nội bộ, khiến thiết bị không thể gửi luồng đến;
+> 2. Lỗi nội bộ của thiết bị, không gửi luồng;
+> 2. Thiết bị đã gửi luồng nhưng luồng không thể nhận diện, có thể do luồng không tuân thủ tiêu chuẩn hoặc mạng rất kém;
+> 3. Thiết bị đã gửi luồng, ZLM cũng đã nhận được nhưng ZLM không thể thông báo cho WVP qua hook, lúc này bạn cần kiểm tra cấu hình hook của ZLM, xem có thể kết nối từ ZLM đến WVP hay không;
+> 4. Thiết bị đã gửi luồng nhưng bật kiểm tra SSRC, luồng của thiết bị không tuân thủ tiêu chuẩn sử dụng SSRC sai, khiến ZLM bỏ qua;
 
-2. **收流超时**  
-收流超时可能发生在流程中的5和6,可能的原因有：
-> 1. 设备发送了流但是发送到了错误的ip和端口上，而这个信息是在invite消息的sdp中指定的，就是流程2Invite(携带SDP消息体)中，而这个错误很可能来自你的配置错误，比如你设置了127.0.0.1导致设备网127.0.0.1上发流，或者是你WVP在公网，但是你给设备了一个内网ip，导致设备无法把流发送过来；
-> 2. 设备内部错误未发送流；
-> 2. 设备发送了流，但是流无法识别，可能存在于流不规范和网络很差的情况下；
-> 3. 设备发送了流，zlm也收到了，但是zlm无法通过hook通知到wvp，此时原因是你可以检查zlm的配置文件中的hook配置，看看是否无法从zlm连接到wvp；
-> 4. 设备发送了流，但是开启SSRC校验，设备的流不够规范采用错误的ssrc，导致zlm选择丢弃；
- 
-针对这些可能的错误原因我建议的排查顺序：  
-- 关闭ssrc校验；
-- 查看zlm配置的hook是否可以连接到zlm；
-- 查看zlm日志是否有流注册；
-- 抓包查看流的信息，看看流是否正常发送，甚至可以导出发送原始流，用vlc播放，看看是否可以播放。
+Đối với các nguyên nhân lỗi này, tôi đề xuất thứ tự kiểm tra như sau:
+- Tắt kiểm tra SSRC;
+- Kiểm tra cấu hình hook của ZLM có thể kết nối đến ZLM hay không;
+- Kiểm tra nhật ký của ZLM xem có đăng ký luồng hay không;
+- Bắt gói tin để kiểm tra thông tin luồng, xem luồng có được gửi đúng không, thậm chí có thể xuất luồng gốc và phát bằng VLC để kiểm tra xem có phát được không.

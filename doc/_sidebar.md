@@ -1,34 +1,34 @@
 <!-- 侧边栏 -->
 
-* **编译与部署**
-  * [编译](_content/introduction/compile.md)
-  * [配置](_content/introduction/config.md)
-  * [部署](_content/introduction/deployment.md)
-* **功能与使用**
-  * [接入设备](_content/ability/device.md)
-  * [设备使用](_content/ability/device_use.md)
-  * [国标级联](_content/ability/cascade2.md)
-  * [推流列表](_content/ability/push.md)
-  * [拉流代理](_content/ability/proxy.md)
-  * [电子地图](_content/ability/gis.md)
-  * [节点管理](_content/ability/node_manger.md)
-  * [云端录像](_content/ability/cloud_record.md)
-  * [不间断录像](_content/ability/continuous_recording.md)
-  * [语音对讲](_content/ability/continuous_broadcast.md)
-* **流程与原理**
-  * [统一编码规则](_content/theory/code.md)
-  * [树形结构](_content/theory/channel_tree.md)
-  * [注册流程](_content/theory/register.md)
-  * [点播流程](_content/theory/play.md)
-  * [级联语音喊话流程](_content/theory/broadcast_cascade.md)
-* **必备技巧**
-  * [抓包](_content/skill/tcpdump.md)
+* **Biên dịch và Triển khai**
+  * [Biên dịch](_content/introduction/compile.md)
+  * [Cấu hình](_content/introduction/config.md)
+  * [Triển khai](_content/introduction/deployment.md)
+* **Chức năng và Sử dụng**
+  * [Kết nối thiết bị](_content/ability/device.md)
+  * [Sử dụng thiết bị](_content/ability/device_use.md)
+  * [Cấp quốc gia](_content/ability/cascade2.md)
+  * [Danh sách đẩy luồng](_content/ability/push.md)
+  * [Proxy kéo luồng](_content/ability/proxy.md)
+  * [Bản đồ điện tử](_content/ability/gis.md)
+  * [Quản lý nút](_content/ability/node_manger.md)
+  * [Ghi hình trên đám mây](_content/ability/cloud_record.md)
+  * [Ghi hình liên tục](_content/ability/continuous_recording.md)
+  * [Đàm thoại](_content/ability/continuous_broadcast.md)
+* **Quy trình và Nguyên lý**
+  * [Quy tắc mã hóa thống nhất](_content/theory/code.md)
+  * [Cấu trúc cây](_content/theory/channel_tree.md)
+  * [Quy trình đăng ký](_content/theory/register.md)
+  * [Quy trình phát lại](_content/theory/play.md)
+  * [Quy trình đàm thoại cấp quốc gia](_content/theory/broadcast_cascade.md)
+* **Kỹ năng cần thiết**
+  * [Bắt gói tin](_content/skill/tcpdump.md)
 
-* **常见问答**
-  - [如何反馈BUG](_content/qa/bug.md)
-  - [如何参与开发](_content/qa/development.md)
-  - [启动报错的解决办法](_content/qa/start_error.md)
-  - [设备注册不上来的解决办法](_content/qa/regiser_error.md)
-  - [点播超时/报错的解决办法](_content/qa/play_error.md)
-* [**免责声明**](_content/disclaimers.md)
-* [**关于本文档**](_content/about_doc.md)
+* **Câu hỏi thường gặp**
+  - [Cách báo lỗi BUG](_content/qa/bug.md)
+  - [Cách tham gia phát triển](_content/qa/development.md)
+  - [Cách giải quyết lỗi khởi động](_content/qa/start_error.md)
+  - [Cách giải quyết lỗi đăng ký thiết bị](_content/qa/regiser_error.md)
+  - [Cách giải quyết lỗi phát lại](_content/qa/play_error.md)
+* [**Tuyên bố miễn trừ trách nhiệm**](_content/disclaimers.md)
+* [**Về tài liệu này**](_content/about_doc.md)

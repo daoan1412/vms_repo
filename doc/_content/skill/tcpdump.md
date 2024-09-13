@@ -1,62 +1,73 @@
 <!-- 抓包 -->
-# 抓包
-如果说对于网络编程，有什么工具是必会的，我觉得抓包肯定是其中之一了。作为GB/T 28181调试过程中最重要的手段，我觉得如果你真对他有兴趣，或者系统遇到问题可以最快的得到解决，那么抓包你就一定要学会了。
+# Bắt gói tin
 
-## 抓包工具的选择
+Nếu nói về lập trình mạng, có công cụ nào mà bạn phải biết, tôi nghĩ bắt gói tin chắc chắn là một trong số đó. Là phương tiện quan trọng nhất trong quá trình gỡ lỗi GB/T 28181, tôi nghĩ nếu bạn thực sự quan tâm đến nó, hoặc hệ thống gặp vấn đề có thể được giải quyết nhanh nhất, thì bạn nhất định phải học cách bắt gói tin.
+
+## Lựa chọn công cụ bắt gói tin
 ### 1. Wireshark
-在具备图形界面的系统上，比如windows，linux发行版ubuntu，opensuse等，我一般直接使用Wireshark直接进行抓包，也方便进行内容的查看。
-### 2. Tcpdump
-在使用命令行的系统，比如linux服务器，我一般使用Tcpdump进行抓包，无需额外安装，系统一般自带，抓包的到的文件，可以使用Wireshark打开，在图形界面下方便查看内容。
+Trên các hệ thống có giao diện đồ họa, như Windows, các bản phân phối Linux như Ubuntu, OpenSUSE, tôi thường sử dụng Wireshark để bắt gói tin, cũng tiện lợi để xem nội dung.
 
-## 工具安装
-Wireshark的安装很简单，根据提示一步步点击就好了，在linux需要解决权限的问题，如果和我一样使用图形界面的linux发行版的话，可以参看如下步骤; windows的小伙伴直接略过即可
+### 2. Tcpdump
+Trên các hệ thống sử dụng dòng lệnh, như máy chủ Linux, tôi thường sử dụng Tcpdump để bắt gói tin, không cần cài đặt thêm, hệ thống thường có sẵn, file bắt gói tin có thể mở bằng Wireshark để xem nội dung trên giao diện đồ họa.
+
+## Cài đặt công cụ
+Cài đặt Wireshark rất đơn giản, chỉ cần làm theo hướng dẫn từng bước. Trên Linux cần giải quyết vấn đề quyền hạn, nếu bạn sử dụng bản phân phối Linux có giao diện đồ họa như tôi, có thể tham khảo các bước sau; người dùng Windows có thể bỏ qua.
+
 ```shell
-# 1. 添加wireshark用户组
+# 1. Thêm nhóm người dùng wireshark
 sudo groupadd wireshark
-# 2. 将dumpcap更改为wireshark用户组
+# 2. Thay đổi nhóm của dumpcap thành nhóm wireshark
 sudo chgrp wireshark /usr/bin/dumpcap
-# 3. 让wireshark用户组有root权限使用dumpcap
+# 3. Cho phép nhóm wireshark có quyền root để sử dụng dumpcap
 sudo chmod 4755 /usr/bin/dumpcap
-# 4. 将需要使用的用户名加入wireshark用户组
+# 4. Thêm tên người dùng cần sử dụng vào nhóm wireshark
 sudo gpasswd -a $USER wireshark
 ```
-tcpdump一般linux都是自带，无需安装，可以这样验证;显示版本信息即是已安装
+
+Tcpdump thường có sẵn trên Linux, không cần cài đặt, có thể kiểm tra bằng cách sau; hiển thị thông tin phiên bản tức là đã cài đặt.
+
 ```shell
 tcpdump --version
 ```
-## 开始抓包
-### 使用Wireshark
-在28181中我一般只关注sip包和rtp包，所以我一般是直接过滤sip和rtp，可以输入框输入 `sip or rtp`这样即可，如果设备来源比较多还可以加上ip和端口号的过滤`(sip or rtp )and ip.addr==192.168.1.3 and udp.port==5060`
-详细的过滤规则可以自行百度，我可以提供一些常用的给大家参考
+
+## Bắt đầu bắt gói tin
+### Sử dụng Wireshark
+Trong GB/T 28181, tôi thường chỉ quan tâm đến gói tin SIP và RTP, vì vậy tôi thường lọc trực tiếp SIP và RTP, có thể nhập vào ô lọc `sip or rtp`, nếu có nhiều thiết bị có thể thêm lọc IP và cổng ` (sip or rtp) and ip.addr==192.168.1.3 and udp.port==5060`. Quy tắc lọc chi tiết có thể tự tìm kiếm, tôi có thể cung cấp một số quy tắc thông dụng để tham khảo.
+
 ![img.png](_media/img.png)  
-**只过滤SIP：**
+**Chỉ lọc SIP:**
 ```shell
 sip
 ```
-**只获取rtp数据：**
+**Chỉ lấy dữ liệu RTP:**
 ```shell
 rtp
 ```
-**默认方式：**
+**Cách mặc định:**
 ```shell
 sip or rtp
 ```
-**过滤IP：**
+**Lọc IP:**
 ```shell
- sip and ip.addr==192.168.1.3
+sip and ip.addr==192.168.1.3
 ```
-**过滤端口：**
+**Lọc cổng:**
 ```shell
- sip and udp.port==5060
+sip and udp.port==5060
 ```
-输入命令开启抓包后，此时可以进行操作，比如点播，录像回访等，操作完成回到Wireshark点击红色的停止即可，需要保存文件可以点击`文件->导出特定分组`导出过滤后的数据，也可以直接`文件->另存为`保存未过滤的数据。
-### 使用tcpdump
-对于服务器抓包，为了得到足够完整的数据，我一般会要求直接抓取网卡数据而不过滤，如下：
-抓取网卡首先需要获取网卡名，在linux我一般使用`ip addr`获取网卡信息，如下所示：
+
+Sau khi nhập lệnh bắt gói tin, có thể thực hiện các thao tác như phát lại, xem lại video, sau khi hoàn thành quay lại Wireshark nhấn nút dừng màu đỏ, nếu cần lưu file có thể nhấn `File -> Export Specified Packets` để xuất dữ liệu đã lọc, hoặc `File -> Save As` để lưu dữ liệu chưa lọc.
+
+### Sử dụng tcpdump
+Đối với bắt gói tin trên máy chủ, để có được dữ liệu đầy đủ, tôi thường yêu cầu bắt trực tiếp dữ liệu của card mạng mà không lọc, như sau:
+
+Đầu tiên cần lấy tên card mạng, trên Linux tôi thường sử dụng `ip addr` để lấy thông tin card mạng, như sau:
+
 ![img_1.png](_media/img_1.png)
 ```shell
 sudo tcpdump -i wlp3s0 -w demo.pcap
 ```
 ![img_2.png](_media/img_2.png)  
-命令行会停留在这个位置，此时可以进行操作，比如点播，录像回放等，操作完成回到命令行使用`Ctrl+C`结束命令行，在当前目录下得到demo.pcap，将这个文件下载到图形界面操作系统里，即可使用Wireshark查看了
-更多的操作可以参考： [https://www.cnblogs.com/jiujuan/p/9017495.html](https://www.cnblogs.com/jiujuan/p/9017495.html)
+Dòng lệnh sẽ dừng lại ở vị trí này, có thể thực hiện các thao tác như phát lại, xem lại video, sau khi hoàn thành quay lại dòng lệnh sử dụng `Ctrl+C` để kết thúc, trong thư mục hiện tại sẽ có file demo.pcap, tải file này về hệ thống có giao diện đồ họa để xem bằng Wireshark.
+
+Tham khảo thêm: [https://www.cnblogs.com/jiujuan/p/9017495.html](https://www.cnblogs.com/jiujuan/p/9017495.html)

@@ -1,24 +1,24 @@
 <!-- 启动时报错 -->
-# 启动时报错
-启动时的报错大部分时候是因为你的配置有问题，比如mysql没连接上，redis没连接上，18080/15060端口占用了，这些都会导致启动是报错，修改配置配置之后都可以解决；
-下面我整理的一些常见的错误，大家可以先对号入座的简单排查下。
-> **常见错误**  
+Khi khởi động gặp lỗi, phần lớn là do cấu hình của bạn có vấn đề, ví dụ như mysql không kết nối được, redis không kết nối được, cổng 18080/15060 bị chiếm dụng, những điều này đều sẽ dẫn đến lỗi khi khởi động, sau khi sửa cấu hình đều có thể giải quyết;
+Dưới đây là một số lỗi thường gặp, mọi người có thể đối chiếu để kiểm tra đơn giản.
+
+> **Lỗi thường gặp**  
 
 ![_media/img.png](_media/img.png)
-**错误原因：** redis配置错误，可能原因： redis未启动/ip错误/端口错误/网络不通  
+**Nguyên nhân lỗi:** Cấu hình redis sai, có thể do: redis chưa khởi động/ip sai/cổng sai/mạng không thông  
 ---
 ![_media/img_1.png](_media/img_1.png)
-**错误原因：** redis配置错误，可能原因： 密码错误
+**Nguyên nhân lỗi:** Cấu hình redis sai, có thể do: mật khẩu sai
 ---
 ![_media/img_2.png](_media/img_2.png)
-**错误原因：** mysql配置错误，可能原因： mysql未启动/ip错误/端口错误/网络不通  
+**Nguyên nhân lỗi:** Cấu hình mysql sai, có thể do: mysql chưa khởi động/ip sai/cổng sai/mạng không thông  
 ---
 ![_media/img_3.png](_media/img_3.png)
-**错误原因：** mysql配置错误，可能原因： 用户名/密码错误
+**Nguyên nhân lỗi:** Cấu hình mysql sai, có thể do: tên người dùng/mật khẩu sai
 ---
 ![_media/img_4.png](_media/img_4.png)
-**错误原因：** SIP配置错误，可能原因： SIP端口被占用
+**Nguyên nhân lỗi:** Cấu hình SIP sai, có thể do: cổng SIP bị chiếm dụng
 ---
 ![_media/img_5.png](_media/img_5.png)
-**错误原因：** WVP Tomcat端口配置错误，可能原因： server.port端口被占用
+**Nguyên nhân lỗi:** Cấu hình cổng WVP Tomcat sai, có thể do: cổng server.port bị chiếm dụng
 ---

@@ -1,33 +1,33 @@
 <!-- 点播流程 -->
 
-# 点播流程
-> 以下为WVP-PRO点播流程。点播成功前的任何一个环节出现问题都可能出现点播超时，这也是排查点播超时的依据。
+# Điểm phát sóng
+
+> Dưới đây là quy trình điểm phát sóng của WVP-PRO. Bất kỳ vấn đề nào xảy ra trong các bước trước khi điểm phát sóng thành công đều có thể dẫn đến quá thời gian điểm phát sóng, đây cũng là cơ sở để kiểm tra quá thời gian điểm phát sóng.
 
 ```plantuml
 @startuml
-"WEB用户"  -> "WVP-PRO": 1. 发起点播请求
-"设备" <-  "WVP-PRO": 2. Invite(携带SDP消息体)
-"设备" --> "WVP-PRO": 3. 200OK(携带SDP消息体)
-"设备" <-- "WVP-PRO": 4. Ack
-"设备" -> "ZLMediaKit": 5. 发送实时流
-"WVP-PRO" <- "ZLMediaKit": 6. 流改变事件
-"WEB用户"  <-- "WVP-PRO": 7. 回复流播放地址（携带流地址）
-"WVP-PRO" <- "ZLMediaKit": 8. 无人观看事件
-"设备" <-  "WVP-PRO": 9 Bye消息
-"设备" -->  "WVP-PRO": 10 200OK
+"WEB người dùng"  -> "WVP-PRO": 1. Gửi yêu cầu điểm phát sóng
+"Thiết bị" <-  "WVP-PRO": 2. Mời (kèm theo thông điệp SDP)
+"Thiết bị" --> "WVP-PRO": 3. 200OK (kèm theo thông điệp SDP)
+"Thiết bị" <-- "WVP-PRO": 4. Xác nhận
+"Thiết bị" -> "ZLMediaKit": 5. Gửi luồng trực tiếp
+"WVP-PRO" <- "ZLMediaKit": 6. Sự kiện thay đổi luồng
+"WEB người dùng"  <-- "WVP-PRO": 7. Trả lời địa chỉ phát sóng (kèm theo địa chỉ luồng)
+"WVP-PRO" <- "ZLMediaKit": 8. Sự kiện không có người xem
+"Thiết bị" <-  "WVP-PRO": 9. Thông điệp Bye
+"Thiết bị" -->  "WVP-PRO": 10. 200OK
 @enduml
 ```
 
+## Mô tả quy trình đăng ký như sau:
 
-##  注册流程描述如下:  
-1. 用户从网页或调用接口发起点播请求;  
-2. WVP-PRO向摄像机发送Invite消息,消息头域中携带 Subject字段,表明点播的视频源ID、发送方媒体流序列号、ZLMediaKit接收流使用的IP、端口号、
- 接收端媒体流序列号等参数,SDP消息体中 s字段为“Play”代表实时点播，y字段描述SSRC值,f字段描述媒体参数。
-3. 摄像机向WVP-PRO回复200OK，消息体中描述了媒体流发送者发送媒体流的IP、端口、媒体格式、SSRC字段等内容。
-4. WVP-PRO向设备回复Ack， 会话建立成功。
-5. 设备向ZLMediaKit发送实时流。
-6. ZLMediaKit向WVP-PRO发送流改变事件。
-7. WVP-PRO向WEB用户回复播放地址。
-8. ZLMediaKit向WVP发送流无人观看事件。
-9. WVP-PRO向设备回复Bye， 结束会话。
-10. 设备回复200OK，会话结束成功。
+1. Người dùng từ trang web hoặc gọi giao diện gửi yêu cầu điểm phát sóng;
+2. WVP-PRO gửi thông điệp Mời đến camera, trong tiêu đề thông điệp có trường Subject, chỉ ra ID nguồn video điểm phát sóng, số thứ tự luồng phương tiện của người gửi, IP sử dụng để nhận luồng của ZLMediaKit, số thứ tự luồng phương tiện của người nhận và các tham số khác, trong thông điệp SDP trường s là "Play" đại diện cho điểm phát sóng trực tiếp, trường y mô tả giá trị SSRC, trường f mô tả các tham số phương tiện.
+3. Camera trả lời WVP-PRO bằng thông điệp 200OK, trong thông điệp mô tả IP, cổng, định dạng phương tiện, trường SSRC của người gửi luồng phương tiện.
+4. WVP-PRO trả lời thiết bị bằng thông điệp Xác nhận, thiết lập phiên thành công.
+5. Thiết bị gửi luồng trực tiếp đến ZLMediaKit.
+6. ZLMediaKit gửi sự kiện thay đổi luồng đến WVP-PRO.
+7. WVP-PRO trả lời địa chỉ phát sóng cho người dùng WEB.
+8. ZLMediaKit gửi sự kiện không có người xem đến WVP.
+9. WVP-PRO trả lời thiết bị bằng thông điệp Bye, kết thúc phiên.
+10. Thiết bị trả lời 200OK, kết thúc phiên thành công.

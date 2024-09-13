@@ -1,12 +1,16 @@
 <!-- 反馈bug -->
-# 反馈bug
-代码是在不断的完善的，不断修改会修复旧的问题也有可能引入新的问题，所以遇到BUG是很正常的一件事。所以遇到问题不要烦燥，咱们就事论事就好了。
-## 如何反馈
-1. 在知识星球提问。
-2. 更新代码，很可能你遇到问题别人已经更早的遇到了，或者是作者自己发现了，已经解决了，所以你可以更新代码再次进行测试;
-3. 可以在github提ISSUE，我几乎每天都会去看issue，你的问题我会尽快给予答复;
-> 有偿支持可以给我发邮件， 648540858@qq.com
+# Phản hồi lỗi (bug)
 
-## 社群
-[![社群](../../_media/shequ.png "shequ")](https://t.zsxq.com/0d8VAD3Dm)
-> 收费是为了提供更好的服务，也是对作者更大的激励。加入星球的用户三天后可以私信我留下微信号，我会拉大家入群。加入三天内不满意可以直接退款，大家不需要有顾虑，来白嫖三天也不是不可以。
+Mã nguồn luôn được cải thiện và sửa đổi, điều này có thể sửa các vấn đề cũ nhưng cũng có thể giới thiệu các vấn đề mới. Vì vậy, gặp lỗi là điều rất bình thường. Khi gặp vấn đề, đừng lo lắng, chúng ta sẽ giải quyết vấn đề một cách bình tĩnh.
+
+## Cách phản hồi
+
+1. Đặt câu hỏi trên ZhiShiXingQiu.
+2. Cập nhật mã nguồn, rất có thể vấn đề bạn gặp phải đã được người khác gặp và giải quyết, hoặc tác giả đã phát hiện và sửa lỗi. Vì vậy, bạn có thể cập nhật mã nguồn và thử lại.
+3. Bạn có thể tạo một ISSUE trên GitHub, tôi hầu như kiểm tra các issue hàng ngày và sẽ trả lời bạn sớm nhất có thể.
+> Hỗ trợ có phí có thể gửi email cho tôi, 648540858@qq.com
+
+## Cộng đồng
+
+[![Cộng đồng](../../_media/shequ.png "shequ")](https://t.zsxq.com/0d8VAD3Dm)
+> Thu phí để cung cấp dịch vụ tốt hơn và cũng là động lực lớn hơn cho tác giả. Người dùng tham gia ZhiShiXingQiu sau ba ngày có thể nhắn tin riêng cho tôi để lại số WeChat, tôi sẽ thêm mọi người vào nhóm. Nếu không hài lòng trong ba ngày đầu, bạn có thể yêu cầu hoàn tiền, không cần lo lắng, bạn có thể thử miễn phí ba ngày.

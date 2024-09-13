@@ -1,14 +1,16 @@
 <!-- 7*24不间断录像 -->
-# 7*24不间断录像
+# Ghi hình liên tục 7*24
 
-目前如果要实现不间断录像如果只是关闭无人观看停止推流是不够的，设备可能经历断网，重启，都会导致录像的中断，目前给大家提供一种可用的临时方案。   
+Hiện tại nếu muốn thực hiện ghi hình liên tục, chỉ tắt tính năng dừng đẩy luồng khi không có người xem là không đủ, thiết bị có thể gặp phải tình trạng mất kết nối mạng, khởi động lại, dẫn đến gián đoạn ghi hình. Hiện tại, chúng tôi cung cấp một giải pháp tạm thời có thể sử dụng.
 
-**原理：** wvp支持使用流地址自动点播，即你拿到一个流地址直接去播放，即使设备处于未点播状态，wvp会自动帮你点播；ZLM
-的拉流代理成功后会无限重试，只要流一恢复就可以拉起来，基于这两个原理。  
-**方案如下：**
-1. wvp的配置中user-settings->auto-apply-play设置为团true,开启自动点播；
-2. 点击你要录像的通道，点击播放页面左下角的“更多地址”，点击rtsp，此时复制了rtsp地址到剪贴板；
-3. 在拉流代理中添加一路流，地址填写你复制的地址，启用成功即可。  
-**前提：** 
-1. wvp使用多端口收流，不然你无法得到一个固定的流地址，也就无法实现自动点播。
+**Nguyên lý:** wvp hỗ trợ sử dụng địa chỉ luồng để tự động phát, tức là bạn có thể lấy một địa chỉ luồng và phát trực tiếp, ngay cả khi thiết bị đang ở trạng thái chưa phát, wvp sẽ tự động giúp bạn phát; ZLM
+của proxy kéo luồng sẽ thử lại vô hạn, chỉ cần luồng khôi phục là có thể kéo lên, dựa trên hai nguyên lý này.
+
+**Giải pháp như sau:**
+1. Trong cấu hình của wvp, đặt `user-settings->auto-apply-play` thành `true`, bật tự động phát;
+2. Nhấp vào kênh bạn muốn ghi hình, nhấp vào "Thêm địa chỉ" ở góc dưới bên trái của trang phát, nhấp vào `rtsp`, lúc này sao chép địa chỉ `rtsp` vào clipboard;
+3. Thêm một luồng vào proxy kéo luồng, điền địa chỉ bạn đã sao chép, kích hoạt thành công là được.
+
+**Điều kiện tiên quyết:**
+1. wvp sử dụng nhiều cổng để nhận luồng, nếu không bạn sẽ không thể có được một địa chỉ luồng cố định, và không thể thực hiện tự động phát.
 

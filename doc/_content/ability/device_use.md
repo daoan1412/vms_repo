@@ -1,35 +1,35 @@
 <!-- 设备使用 -->
-# 设备使用  
-### 更新设备通道  
-  点击列表末尾的“刷新”按钮，可以看到一个圆形进度条，等进度结束提示成功后即可更新完成，如果通道数量有变化你可以看点击左上角的![刷新](_media/img_14.png)即可看到通道数量的变化；如果通道数量仍未0,那么可能时对方尚未推送通道给你。
-### 查看设备通道  
-  点击列表末尾的“通道”按钮，
-### 查看设备定位  
-  点击列表末尾的“定位”按钮，即可跳转到地图页面看到设备的位置
-### 编辑设备在WVP中一些功能
-点击列表末尾的“编辑”按钮，即可在打开的弹窗中对设备功能进行修改
-- 设备名称  
-  如何未能从设备里读取到设备名称或者需要自己重命名，那么可以修改此选项。
-- 字符集  
-  修改读取设备数据时使用的字符集，默认为GB2312,但是GB2312收录的汉字不全，所以有时候回遇到乱码，可以修改为UTF-8来解决。
-- 地理坐标系  
-  展示此设备定位信息时使用的设用什么坐标系来解析经纬度，一般不用修改，如果遇到定位不准，可以修改尝试修改此选项解决。 
-- 目录结构  
-  展示设备的通道信息时，使用设备作为树形结构的依据，国标28181定义了两种树形结构，详情查看[国标28181的树形结构](./_content/theory/channel_tree.md)；
-- 目录订阅  
-  填写订阅周期即可对设备开启目录订阅，设备如果支持目录订阅那么设备在通道信息发生变化时就会通知WVP哪些通道发生了那些变化，包括通道增加/删除/更新/上线/下线/视频丢失/故障。0为取消订阅。
-  一般NVR和平台对接可以开启此选项，直接接摄像机开启此选项意义不大。
-- 移动位置订阅  
-  对设备开启移动位置订阅，设备如果支持目录订阅那么设备位置发生变化时会通知到WVP,一般执法记录仪可以开启此选项，对固定位置的设备意义不大。
-- SSRC校验  
-  为了解决部分设备出现的串流问题，可以打开此选项。ZLM会严格按照给定的ssrc处理视频流。部分设备流信息不标准，开启可能导致无法点播。
-### 删除设备  
-  可以删除WVP中的设备信息，如果设备28181配置未更改，那么设备在下一次注册后仍然会注册上来。
-### 点播视频  
-  进入通道列表后，点击列表末尾的“播放”按钮，稍等即可弹出播放页面
-### 设备录像  
-  进入通道列表后，点击列表末尾的“设备录像”按钮，也可以在播放页面点击录像查询进入录像查看页面，选择要查看的日期即可对录像进行播放和下载。
-### 云台控制  
-  可以对支持云台功能的设备进行上下左右的转动以及拉近拉远的操作。
-### 获取视频的播放器地址  
-  视频点播成功后在实时视频页面，点击“更多地址”可以看到所有的播放地址，地址是否可以播放与你是否完整编译启用zlm功能有关，更与网络有关。
+# Sử dụng thiết bị  
+### Cập nhật kênh thiết bị  
+  Nhấn nút "Làm mới" ở cuối danh sách, bạn sẽ thấy một thanh tiến trình tròn, đợi đến khi tiến trình kết thúc và thông báo thành công thì việc cập nhật hoàn tất. Nếu số lượng kênh thay đổi, bạn có thể nhấn vào biểu tượng ![Làm mới](_media/img_14.png) ở góc trên bên trái để thấy sự thay đổi số lượng kênh; nếu số lượng kênh vẫn là 0, có thể là do phía đối tác chưa đẩy kênh cho bạn.
+### Xem kênh thiết bị  
+  Nhấn nút "Kênh" ở cuối danh sách.
+### Xem vị trí thiết bị  
+  Nhấn nút "Định vị" ở cuối danh sách để chuyển đến trang bản đồ và xem vị trí của thiết bị.
+### Chỉnh sửa một số chức năng của thiết bị trong WVP
+Nhấn nút "Chỉnh sửa" ở cuối danh sách để mở cửa sổ bật lên và chỉnh sửa các chức năng của thiết bị.
+- Tên thiết bị  
+  Nếu không thể đọc được tên thiết bị từ thiết bị hoặc cần đổi tên, bạn có thể chỉnh sửa tùy chọn này.
+- Bộ ký tự  
+  Chỉnh sửa bộ ký tự sử dụng khi đọc dữ liệu từ thiết bị, mặc định là GB2312, nhưng GB2312 không bao gồm tất cả các ký tự tiếng Trung, do đó đôi khi sẽ gặp lỗi mã hóa, bạn có thể đổi sang UTF-8 để giải quyết.
+- Hệ tọa độ địa lý  
+  Sử dụng hệ tọa độ nào để phân tích kinh độ và vĩ độ khi hiển thị thông tin định vị của thiết bị, thường không cần chỉnh sửa, nếu gặp vấn đề định vị không chính xác, bạn có thể thử chỉnh sửa tùy chọn này để giải quyết.
+- Cấu trúc danh mục  
+  Sử dụng thiết bị làm cơ sở cho cấu trúc cây khi hiển thị thông tin kênh của thiết bị, tiêu chuẩn quốc gia 28181 định nghĩa hai cấu trúc cây, chi tiết xem [Cấu trúc cây của tiêu chuẩn quốc gia 28181](./_content/theory/channel_tree.md);
+- Đăng ký danh mục  
+  Điền chu kỳ đăng ký để bật đăng ký danh mục cho thiết bị, nếu thiết bị hỗ trợ đăng ký danh mục thì khi thông tin kênh thay đổi, thiết bị sẽ thông báo cho WVP những thay đổi nào đã xảy ra, bao gồm thêm/xóa/cập nhật kênh, kênh trực tuyến/ngoại tuyến, mất video, lỗi. 0 để hủy đăng ký.
+  Thường NVR và nền tảng kết nối có thể bật tùy chọn này, kết nối trực tiếp với camera thì không có nhiều ý nghĩa.
+- Đăng ký vị trí di động  
+  Bật đăng ký vị trí di động cho thiết bị, nếu thiết bị hỗ trợ đăng ký danh mục thì khi vị trí thiết bị thay đổi, thiết bị sẽ thông báo cho WVP, thường bật tùy chọn này cho camera hành trình, không có nhiều ý nghĩa cho thiết bị cố định.
+- Kiểm tra SSRC  
+  Để giải quyết một số vấn đề về luồng của thiết bị, bạn có thể bật tùy chọn này. ZLM sẽ xử lý luồng video theo SSRC được cung cấp. Một số thiết bị có thông tin luồng không chuẩn, bật tùy chọn này có thể dẫn đến không thể phát lại.
+### Xóa thiết bị  
+  Bạn có thể xóa thông tin thiết bị trong WVP, nếu cấu hình 28181 của thiết bị không thay đổi, thiết bị sẽ đăng ký lại vào lần đăng ký tiếp theo.
+### Phát video theo yêu cầu  
+  Vào danh sách kênh, nhấn nút "Phát" ở cuối danh sách, đợi một chút để trang phát video bật lên.
+### Ghi hình thiết bị  
+  Vào danh sách kênh, nhấn nút "Ghi hình thiết bị" ở cuối danh sách, hoặc nhấn vào "Tìm kiếm ghi hình" trên trang phát video để vào trang xem ghi hình, chọn ngày muốn xem để phát và tải về ghi hình.
+### Điều khiển PTZ  
+  Bạn có thể điều khiển thiết bị hỗ trợ chức năng PTZ để xoay lên/xuống/trái/phải và phóng to/thu nhỏ.
+### Lấy địa chỉ trình phát video  
+  Sau khi phát video theo yêu cầu thành công, trên trang video trực tiếp, nhấn "Thêm địa chỉ" để xem tất cả các địa chỉ phát, địa chỉ có thể phát hay không phụ thuộc vào việc bạn đã biên dịch đầy đủ và bật chức năng zlm hay chưa, và còn phụ thuộc vào mạng.

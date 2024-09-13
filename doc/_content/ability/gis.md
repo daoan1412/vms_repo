@@ -1,37 +1,35 @@
 <!-- 电子地图 -->
-# 电子地图
-WVP提供了简单的电子地图用于设备的定位以及移动设备的轨迹信息，电子地图基于开源的地图引擎openlayers开发。
-### 查看设备定位
-1. 可以在设备列表点击“定位”按钮,自动跳转到电子地图页面； 
-2. 在电子地图页面在设备上右键点击“定位”获取设备/平台下的所有通道位置。
-3. 单击通道信息可以定位到具体的通道 
+# Bản đồ điện tử
+WVP cung cấp một bản đồ điện tử đơn giản để định vị thiết bị và thông tin hành trình của thiết bị di động, bản đồ điện tử được phát triển dựa trên công cụ bản đồ mã nguồn mở openlayers.
+### Xem định vị thiết bị
+1. Có thể nhấn nút "Định vị" trong danh sách thiết bị, tự động chuyển đến trang bản đồ điện tử;
+2. Trong trang bản đồ điện tử, nhấn chuột phải vào thiết bị và chọn "Định vị" để lấy vị trí của tất cả các kênh dưới thiết bị/nền tảng.
+3. Nhấn vào thông tin kênh để định vị đến kênh cụ thể.
 
+### Truy vấn hành trình thiết bị
+Truy vấn hành trình cần cấu hình trước tùy chọn save-position-history để bật lưu trữ thông tin hành trình, hiện tại WVP chưa hỗ trợ phân chia cơ sở dữ liệu, không thể xử lý lượng lớn thông tin hành trình, nếu có nhu cầu vui lòng tự phát triển hoặc đặt hàng phát triển tùy chỉnh.
+Trong trang bản đồ điện tử, nhấn chuột phải vào thiết bị và chọn "Truy vấn hành trình" để lấy thông tin hành trình của thiết bị.
 
-### 查询设备轨迹
-查询轨迹需要提前配置save-position-history选项开启轨迹信息的保存，目前WVP此处未支持分库分表，对于大数据量的轨迹信息无法胜任，有需求请自行二次开发或者定制开发。
-在电子地图页面在设备上右键点击“查询轨迹”获取设备轨迹信息。
+PS: Bản đồ nền hiện tại chỉ dùng để trình diễn và học tập, trong trường hợp sử dụng thương mại vui lòng tự mua bản quyền sử dụng.
 
-PS： 目前的底图仅用用作演示和学习，商用情况请自行购买授权使用。
-
-### 更换底图以及底图配置
-目前WVP支持使用了更换底图，配置文件在web_src/static/js/config.js，请修改后重新编译前端文件。
+### Thay đổi bản đồ nền và cấu hình bản đồ nền
+Hiện tại WVP hỗ trợ thay đổi bản đồ nền, tệp cấu hình nằm trong `web_src/static/js/config.js`, vui lòng sửa đổi và biên dịch lại tệp frontend.
 ```javascript
 window.mapParam = {
-  // 开启/关闭地图功能
+  // Bật/tắt chức năng bản đồ
   enable: true,
-  // 坐标系 GCJ-02 WGS-84,
+  // Hệ tọa độ GCJ-02 WGS-84,
   coordinateSystem: "GCJ-02",
-  // 地图瓦片地址
+  // Địa chỉ ô bản đồ
   tilesUrl: "http://webrd0{1-4}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8",
-  // 瓦片大小
+  // Kích thước ô
   tileSize: 256,
-  // 默认层级
-  zoom:10,
-  // 默认地图中心点
-  center:[116.41020, 39.915119],
-  // 地图最大层级
-  maxZoom:18,
-  // 地图最小层级
+  // Mức độ phóng đại mặc định
+  zoom: 10,
+  // Tọa độ trung tâm bản đồ mặc định
+  center: [116.41020, 39.915119],
+  // Mức độ phóng đại tối đa của bản đồ
+  maxZoom: 18,
+  // Mức độ phóng đại tối thiểu của bản đồ
   minZoom: 3
 }
-```

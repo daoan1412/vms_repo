@@ -1,18 +1,18 @@
 <!-- 国标级联的使用 -->
-# 国标级联的使用
-国标28181不同平台之间支持两种连接方式，平级和上下级，WVP目前支持向上级级联。
-## 添加上级平台
-在国标级联页面点击“添加”按钮，以推送到上级WVP为例子，参看[接入设备](./_content/ability/device.md)
+# Sử dụng quốc gia để liên kết
+Quốc gia 28181 hỗ trợ hai cách kết nối giữa các nền tảng khác nhau, ngang hàng và cấp trên cấp dưới, WVP hiện tại hỗ trợ liên kết lên cấp trên.
+## Thêm nền tảng cấp trên
+Trong trang liên kết quốc gia, nhấn nút "Thêm", ví dụ để đẩy lên WVP cấp trên, tham khảo [Kết nối thiết bị](./_content/ability/device.md)
 ![cascade17](_media/img_17.png)
-点击保存可以在上级的国标通道列表看到新增加的设备；
-国标级联列表出现了级联的这个平台；同时状态显示为在线，如果状态为离线那么可能是你的服务信息配置有误或者网络不通。
-订阅信息列有三个图标，表示上级开启订阅，从左到右依次是：报警订阅，目录订阅，移动位置订阅。
-## 推送通道
-点击你要推送的平台的“选择通道”按钮。
+Nhấn lưu để có thể thấy thiết bị mới thêm vào trong danh sách kênh quốc gia của cấp trên;
+Danh sách liên kết quốc gia xuất hiện nền tảng này; đồng thời trạng thái hiển thị là trực tuyến, nếu trạng thái là ngoại tuyến thì có thể thông tin cấu hình dịch vụ của bạn sai hoặc mạng không kết nối.
+Cột thông tin đăng ký có ba biểu tượng, biểu thị cấp trên bật đăng ký, từ trái sang phải lần lượt là: Đăng ký báo động, Đăng ký danh mục, Đăng ký vị trí di động.
+## Đẩy kênh
+Nhấn nút "Chọn kênh" của nền tảng bạn muốn đẩy.
 ![cascade18](_media/img_18.png)
-- **页面结构**
-  - 左侧为目录结构  
-  选择未分配，则右侧显示待分配的通道，可以点击“添加按钮”，在弹窗中选择要放置的位置，保存后即可添加通道成功
-  选择其他的目录可以看到已经分配在这个目录下的通道，可以对其进行删除后重新在未分配中去分配。
-  - 右侧为数据展示以及操作  
-  国标通道栏内为来自其他国标设备/平台的通道；直播流通道为来自推流/拉流代理的通道。
+- **Cấu trúc trang**
+  - Bên trái là cấu trúc danh mục  
+  Chọn chưa phân bổ, thì bên phải hiển thị các kênh chờ phân bổ, có thể nhấn nút "Thêm", trong cửa sổ bật lên chọn vị trí muốn đặt, nhấn lưu để thêm kênh thành công
+  Chọn danh mục khác có thể thấy các kênh đã phân bổ trong danh mục này, có thể xóa và phân bổ lại từ chưa phân bổ.
+  - Bên phải là hiển thị dữ liệu và thao tác  
+  Cột kênh quốc gia là các kênh từ thiết bị/nền tảng quốc gia khác; kênh luồng trực tiếp là các kênh từ đẩy/nhận luồng proxy.

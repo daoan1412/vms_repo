@@ -1,41 +1,40 @@
 <!-- 推流列表 -->
-# 推流列表
-## 功能说明
+# Danh sách đẩy luồng
+## Mô tả chức năng
 
-WVP支持三种图像输入方式，直播，[拉流代理](_content/ability/proxy.md)，[国标](_content/ability/device.md),直播设备接入流程如下
+WVP hỗ trợ ba cách nhập hình ảnh: phát trực tiếp, [proxy kéo luồng](_content/ability/proxy.md), [quốc chuẩn](_content/ability/device.md). Quy trình kết nối thiết bị phát trực tiếp như sau:
 ```plantuml
 @startuml
-"直播设备"  -> "ZLMediaKit": 1. 发起推流
-"ZLMediaKit"  -> "WVP-PRO": 2. 收到hook通知得到流信息
-"上级国标平台"  -> "WVP-PRO": 3. 点播这路视频
-"WVP-PRO" -> "ZLMediaKit": 4. 通知推流到上级国标平台
+"Thiết bị phát trực tiếp"  -> "ZLMediaKit": 1. Bắt đầu đẩy luồng
+"ZLMediaKit"  -> "WVP-PRO": 2. Nhận thông báo hook và lấy thông tin luồng
+"Nền tảng quốc chuẩn cấp trên"  -> "WVP-PRO": 3. Yêu cầu phát video này
+"WVP-PRO" -> "ZLMediaKit": 4. Thông báo đẩy luồng đến nền tảng quốc chuẩn cấp trên
 @enduml
 ```
-1. 默认情况下WVP收到推流信息后，列表中出现这条推流信息，此时你可以点击“加入国标”按钮为此路推流配置名称以及国标编号，只有有国标编号的推流才可以添加到级联平台，保存成功后可以在国标级联中[添加通道推送给上级平台](_content/ability/cascade?id=_2-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95%e4%b8%8e%e9%80%9a%e9%81%93)
-2. WVP也支持推流前导入大量通道直接推送给上级，点击“下载模板”按钮，根据示例修改模板后，点击“通道导入”按钮导入通道数据，保存成功后可以在国标级联中[添加通道推送给上级平台](_content/ability/cascade?id=_2-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95%e4%b8%8e%e9%80%9a%e9%81%93)
+1. Mặc định, khi WVP nhận được thông tin đẩy luồng, thông tin này sẽ xuất hiện trong danh sách. Bạn có thể nhấp vào nút "Thêm vào quốc chuẩn" để cấu hình tên và mã quốc chuẩn cho luồng này. Chỉ những luồng có mã quốc chuẩn mới có thể thêm vào nền tảng liên kết. Sau khi lưu thành công, bạn có thể [thêm kênh đẩy lên nền tảng cấp trên](_content/ability/cascade?id=_2-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95%e4%b8%8e%e9%80%9a%e9%81%93).
+2. WVP cũng hỗ trợ nhập hàng loạt kênh trước khi đẩy luồng. Nhấp vào nút "Tải mẫu" và chỉnh sửa mẫu theo hướng dẫn, sau đó nhấp vào nút "Nhập kênh" để nhập dữ liệu kênh. Sau khi lưu thành công, bạn có thể [thêm kênh đẩy lên nền tảng cấp trên](_content/ability/cascade?id=_2-%e6%b7%bb%e5%8a%a0%e7%9b%ae%e5%bd%95%e4%b8%8e%e9%80%9a%e9%81%93).
 
-## 推拉流鉴权规则
-为了保护服务器的WVP默认开启推流鉴权（目前不支持关闭此功能）
+## Quy tắc xác thực đẩy/kéo luồng
+Để bảo vệ máy chủ, WVP mặc định bật xác thực đẩy luồng (hiện tại không hỗ trợ tắt chức năng này).
 
-### 推流规则
-推流时需要携带推流鉴权的签名sign，sign=md5(pushKey),pushKey来自用户表，每个用户会有一个不同的pushKey.
-例如app=test，stream=live，pushKey=1000，ip=192.168.1.4, port=10554 那么推流地址为：
+### Quy tắc đẩy luồng
+Khi đẩy luồng, cần kèm theo chữ ký xác thực đẩy luồng (sign). sign=md5(pushKey), pushKey lấy từ bảng người dùng, mỗi người dùng sẽ có một pushKey khác nhau.
+Ví dụ: app=test, stream=live, pushKey=1000, ip=192.168.1.4, port=10554 thì địa chỉ đẩy luồng sẽ là:
 ```
 rtsp://192.168.1.4:10554/test/live?sign=a9b7ba70783b617e9998dc4dd82eb3c5
 ```
-支持推流时自定义播放鉴权Id，参数名为callId，此时sign=md5(callId_pushKey)
-例如app=test，stream=live，pushKey=1000，callId=12345678, ip=192.168.1.4, port=10554 那么推流地址为：
+Hỗ trợ tùy chỉnh Id xác thực phát khi đẩy luồng, tên tham số là callId, khi đó sign=md5(callId_pushKey).
+Ví dụ: app=test, stream=live, pushKey=1000, callId=12345678, ip=192.168.1.4, port=10554 thì địa chỉ đẩy luồng sẽ là:
 ```
 rtsp://192.168.1.4:10554/test/live?callId=12345678&sign=c8e6e01dde2d60c66dcea8d2498ffef1
 ```
-### 播放规则
-默认情况播放不需要鉴权，但是如果推流时携带了callId，那么播放时必须携带callId
-例如app=test，stream=live，无callId, ip=192.168.1.4, port=10554 那么播放地址为：
+### Quy tắc phát
+Mặc định, phát không cần xác thực, nhưng nếu khi đẩy luồng có kèm theo callId, thì khi phát cũng phải kèm theo callId.
+Ví dụ: app=test, stream=live, không có callId, ip=192.168.1.4, port=10554 thì địa chỉ phát sẽ là:
 ```
 rtsp://192.168.1.4:10554/test/live
 ```
-例如app=test，stream=live，callId=12345678, ip=192.168.1.4, port=10554 那么播放地址为：
+Ví dụ: app=test, stream=live, callId=12345678, ip=192.168.1.4, port=10554 thì địa chỉ phát sẽ là:
 ```
 rtsp://192.168.1.4:10554/test/live?callId=12345678
 ```
-

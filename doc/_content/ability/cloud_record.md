@@ -1,8 +1,8 @@
 <!-- 云端录像 -->
-# 云端录像
-云端录像是对录制在zlm服务下的录像文件的管理，录像的文件路径默认在ZLM/www/record下。
-如果你需要24小时的录像，目前有一个这种方案，可以参考[7*24不间断录像](./_content/ability/continuous_recording.md)。
-1. 云段录像支持录像文件的查看，播放（可能因为编码的原因导致无法播放）；
-2. 支持录像的下载；
-3. 支持录像的合并下载；
-功能没有太多特殊的地方就不一一介绍了，大家自行体验吧。
+# Ghi hình đám mây
+Ghi hình đám mây là quản lý các tệp ghi hình được lưu trữ dưới dịch vụ zlm, đường dẫn tệp ghi hình mặc định là ZLM/www/record.
+Nếu bạn cần ghi hình 24 giờ, hiện có một giải pháp như vậy, có thể tham khảo [Ghi hình liên tục 7*24](./_content/ability/continuous_recording.md).
+1. Ghi hình đám mây hỗ trợ xem và phát tệp ghi hình (có thể không phát được do vấn đề mã hóa);
+2. Hỗ trợ tải xuống tệp ghi hình;
+3. Hỗ trợ tải xuống hợp nhất tệp ghi hình;
+Chức năng không có gì đặc biệt nên không giới thiệu chi tiết, mọi người tự trải nghiệm nhé.
